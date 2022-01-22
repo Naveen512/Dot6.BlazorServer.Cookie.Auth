@@ -1,0 +1,51 @@
+@page "/identity/account/register"
+@model RegisterModel
+
+<div class="container">
+    <div class="row text-center">
+        <div class="col">
+            @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+            {
+                <div class="alert alert-danger" role="alert">
+                    @Model.ErrorMessage
+                </div>
+            }
+            else if (Model.IsUserRegistrationSuccessfull)
+            {
+                <div class="alert alert-success" role="alert">
+                    Registered Successfuly, now click here to login
+                </div>
+            }
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form method="POST">
+                <legend>User Registration</legend>
+                <div class="mb-3">
+                    <label for="txtEmail" class="form-label">Email</label>
+                    <input asp-for="RegisterForm.Email" type="text" class="form-control" id="txtEmail" />
+                </div>
+                <div class="mb-3">
+                    <label for="txtFirstName" class="form-label">First Name</label>
+                    <input asp-for="RegisterForm.FirstName" type="text" class="form-control" id="txtFirstName" />
+                </div>
+                <div class="mb-3">
+                    <label for="txtLastName" class="form-label">Last Name</label>
+                    <input asp-for="RegisterForm.LastName" type="text" class="form-control" id="txtLastName" />
+                </div>
+                <div class="mb-3">
+                    <label for="txtPassword" class="form-label">Password</label>
+                    <input asp-for="RegisterForm.Password" type="password" class="form-control" id="txtPassword" />
+                </div>
+                <div class="mb-3">
+                    <label for="txtConfirmPassword" class="form-label">Confirm Password</label>
+                    <input asp-for="RegisterForm.ConfirmPassword" type="password" class="form-control"
+                        id="txtConfirmPassword" />
+                </div>
+                <button type="submit" class="btn btn-primary">Register</button>
+            </form>
+        </div>
+
+    </div>
+</div>

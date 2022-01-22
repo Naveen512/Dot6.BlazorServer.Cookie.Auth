@@ -1,0 +1,14 @@
+﻿@page "/"
+@namespace Dot6.Bserver.Cookie.Auth.Pages
+@using Dot6.Bserver.Cookie.Auth.Models
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Xsrf
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "_Layout";
+    var appInitialState = new ApplicationInitialState()
+    {
+        AntiForgeryToken = Xsrf.GetAndStoreTokens(HttpContext).RequestToken
+    };
+}
+
+<component type="typeof(App)" param-InitialState="@appInitialState" render-mode="ServerPrerendered" />

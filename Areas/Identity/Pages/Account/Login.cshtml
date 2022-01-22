@@ -1,0 +1,36 @@
+@page "/identity/account/login"
+@model LoginModel
+
+
+<div class="container">
+    <div class="row text-center">
+        <div class="col">
+            @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+            {
+                <div class="alert alert-danger" role="alert">
+                    @Model.ErrorMessage
+                </div>
+            }
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form method="POST">
+                <legend>User Login</legend>
+                <div class="mb-3">
+                    <label for="txtEmail" class="form-label">Email</label>
+                    <input asp-for="LoginVm.Email" type="text" class="form-control" id="txtEmail" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="txtPassword" class="form-label">Password</label>
+                    <input asp-for="LoginVm.Password" type="password" class="form-control" id="txtPassword" />
+                </div>
+
+                <button type="submit" class="btn btn-primary">Register</button>
+            </form>
+        </div>
+
+    </div>
+</div>

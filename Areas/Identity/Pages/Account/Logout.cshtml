@@ -1,0 +1,14 @@
+@page "/identiy/account/logout"
+@using Microsoft.AspNetCore.Authentication
+@using Microsoft.AspNetCore.Authentication.Cookies
+@inject IHttpContextAccessor _accessor
+
+@functions {
+
+    public async Task<IActionResult> OnPostAsync()
+    {
+        await _accessor.HttpContext
+        .SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+        return Redirect("~/");
+    }
+}
